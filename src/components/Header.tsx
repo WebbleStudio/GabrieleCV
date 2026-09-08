@@ -6,7 +6,7 @@ export function Header() {
   return (
     <header className="mx-auto flex w-full max-w-[1080px] items-center gap-8 px-6 pt-8 pb-4">
       <Link to="/" className="font-serif text-[28px] leading-none text-ink">
-        Albert
+        Gabriele
       </Link>
       <nav className="hidden flex-1 items-center gap-7 md:flex">
         {navLinks.map((link) => (

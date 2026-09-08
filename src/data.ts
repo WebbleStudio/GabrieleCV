@@ -5,76 +5,70 @@ export const navLinks = [
   { label: "Contact us", href: "#contact" },
 ] as const;
 
+const experienceLogo = (file: string) =>
+  `/Pic esperienze lavorative/${file}`;
+
 export const experience = [
   {
     role: "Product designer and Art director",
     company: "Webble Studio",
     dates: "2025 - Present",
-    color: "#171719",
-    mark: "Ws",
+    logo: experienceLogo("webblestudio.webp"),
+    href: "https://webblestudio.com/it",
   },
   {
     role: "Graphic and web designer",
     company: "Bquadro",
     dates: "2023 - Present",
-    color: "#2c2c2c",
-    mark: "Bq",
+    logo: experienceLogo("bquadro.webp"),
   },
   {
-    role: "Graphic e web designer",
+    role: "Graphic and web designer",
     company: "Associazione Bios",
     dates: "2023 - Present",
-    color: "#3d5a3d",
-    mark: "Ab",
+    logo: experienceLogo("bios.webp"),
   },
   {
-    role: "Product e Brand designer",
+    role: "Product and Brand designer",
     company: "Freelance",
     dates: "2019 - Present",
-    color: "#5c5346",
-    mark: "Fr",
+    logo: experienceLogo("freelance.webp"),
   },
   {
     role: "Lead designer, Art director and marketing specialist",
     company: "GustaGo",
     dates: "2025 - 2026",
-    color: "#c45c26",
-    mark: "Gg",
+    logo: experienceLogo("Gustago.webp"),
   },
   {
-    role: "Lead Product designer, Art director e Project Manager",
+    role: "Lead Product designer, Art director and Project Manager",
     company: "Leagacy of game",
     dates: "2023 - 2025",
-    color: "#1f3a5f",
-    mark: "Lg",
+    logo: experienceLogo("Legacyofgame.webp"),
   },
   {
     role: "Lead designer and art director",
     company: "The trader forge",
     dates: "2024",
-    color: "#0f766e",
-    mark: "Tf",
+    logo: experienceLogo("thetraderforge.webp"),
   },
   {
     role: "Lead web designer",
     company: "Prop Tradezone",
     dates: "2024",
-    color: "#4338ca",
-    mark: "Pt",
+    logo: experienceLogo("PropTradezone.webp"),
   },
   {
     role: "Web designer",
     company: "Tiaos",
     dates: "2022",
-    color: "#7c3aed",
-    mark: "Ti",
+    logo: experienceLogo("tiaos.webp"),
   },
   {
     role: "Graphic designer",
     company: "Gruppo L.E.M.",
     dates: "2022",
-    color: "#44403c",
-    mark: "Lm",
+    logo: experienceLogo("Gruppo lem.webp"),
   },
 ] as const;
 
@@ -118,7 +112,7 @@ export const works = [
     tags: ["Web design", "Branding", "Marketing"],
     blurb: "Website, brand system, and marketing assets for the studio.",
     tint: "#f3efe8",
-    image: "/works/webble-studio.jpg",
+    image: "/works/Webble.webp",
   },
   {
     slug: "holdup-agency",
@@ -126,7 +120,7 @@ export const works = [
     tags: ["Web design", "Art direction"],
     blurb: "Art direction and web design for the agency presence.",
     tint: "#f7e8e2",
-    image: "/works/holdup-agency.jpg",
+    image: "/works/Holdup.webp",
   },
   {
     slug: "mbp-productions",
@@ -134,7 +128,7 @@ export const works = [
     tags: ["Web design", "Art direction"],
     blurb: "Visual direction and website for a production studio.",
     tint: "#eceff3",
-    image: "/works/mbp-productions.jpg",
+    image: "/works/Mbp.webp",
   },
   {
     slug: "legacy-of-game",
@@ -142,7 +136,7 @@ export const works = [
     tags: ["Creative lead", "Project management"],
     blurb: "Creative lead and project management across product and brand.",
     tint: "#f3efe8",
-    image: "/works/legacy-of-game.jpg",
+    image: "/works/Legacy of game.webp",
   },
   {
     slug: "mavimatt",
@@ -150,7 +144,7 @@ export const works = [
     tags: ["Branding"],
     blurb: "Brand identity and visual system.",
     tint: "#f7e8e2",
-    image: "/works/mavimatt.jpg",
+    image: "/works/Mavimatt.webp",
   },
   {
     slug: "gustago",
@@ -158,7 +152,7 @@ export const works = [
     tags: ["App design", "Branding"],
     blurb: "App design and branding for a product launch.",
     tint: "#eceff3",
-    image: "/works/gustago.jpg",
+    image: "/works/GustaGo.webp",
   },
   {
     slug: "vista360",
@@ -166,7 +160,7 @@ export const works = [
     tags: ["Web design"],
     blurb: "Website design from structure to UI.",
     tint: "#f3efe8",
-    image: "/works/vista360.jpg",
+    image: "/works/Vista360.webp",
   },
   {
     slug: "forex-aikido",
@@ -174,7 +168,15 @@ export const works = [
     tags: ["Branding", "Social media design"],
     blurb: "Brand and social media design for the channel.",
     tint: "#f7e8e2",
-    image: "/works/forex-aikido.jpg",
+    image: "/works/Forex Aikido.webp",
+  },
+  {
+    slug: "the-trader-forge",
+    name: "The Trader Forge",
+    tags: ["Art direction", "Social media design"],
+    blurb: "Art direction and social media design for the trading brand.",
+    tint: "#eceff3",
+    image: "/works/the trader forge.webp",
   },
 ] as const;
 
@@ -184,9 +186,6 @@ export function getWork(slug: string) {
   return works.find((work) => work.slug === slug);
 }
 
-const covers = works.map((work) => work.image);
-
 export function workPhotos(work: Work) {
-  const start = works.findIndex((item) => item.slug === work.slug);
-  return Array.from({ length: 6 }, (_, i) => covers[(start + i) % covers.length]);
+  return [work.image];
 }

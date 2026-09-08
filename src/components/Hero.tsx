@@ -10,12 +10,12 @@ export function Hero({ children }: { children?: ReactNode }) {
       <Reveal className="md:sticky md:top-8">
         <div className="max-w-[280px]">
           <img
-            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=720&q=80"
-            alt="Albert Flores"
+            src="/Gabriele%20Consolo.webp"
+            alt="Gabriele Consolo"
             className="aspect-square w-full rounded-[28px] object-cover"
           />
           <h1 className="mt-6 font-serif text-[40px] leading-[1.05] tracking-[-0.02em] text-ink">
-            I'm Albert Flores
+            I'm Gabriele Consolo
           </h1>
           <p className="mt-3 text-[15px] leading-relaxed text-muted">
             Digital Product Designer based in Tegal, Indonesia.

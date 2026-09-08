@@ -11,12 +11,12 @@ export function Footer() {
       <div className="flex flex-col gap-8 rounded-[40px] bg-ink px-6 py-8 text-white sm:rounded-[48px] sm:px-10 md:flex-row md:items-center md:gap-12">
         <div className="flex min-w-0 items-center gap-4 md:max-w-[280px]">
           <img
-            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=240&q=80"
-            alt=""
+            src="/Gabriele%20Consolo.webp"
+            alt="Gabriele Consolo"
             className="size-14 shrink-0 rounded-2xl object-cover"
           />
           <div>
-            <p className="font-serif text-[26px] leading-tight">I'm Albert Flores</p>
+            <p className="font-serif text-[26px] leading-tight">I'm Gabriele Consolo</p>
             <p className="mt-1 text-[13px] text-white/55">
               Digital Product Designer based in Tegal, Indonesia.
             </p>

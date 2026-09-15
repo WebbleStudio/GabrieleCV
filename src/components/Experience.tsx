@@ -12,7 +12,7 @@ export function Experience() {
         {experience.map((job, i) => {
           const href = "href" in job ? job.href : undefined;
           const rowClass = `group flex items-center gap-4 rounded-[22px] bg-card px-5 py-4 shadow-[0_1px_0_rgba(0,0,0,0.03)] transition-colors duration-300 ${
-            href ? "cursor-pointer hover:bg-[#7541ee]" : ""
+            href ? "cursor-pointer hover:bg-accent" : ""
           }`;
           const textHover = href ? "group-hover:text-white" : "";
 
@@ -30,13 +30,13 @@ export function Experience() {
                   {job.role}
                 </p>
                 <p
-                  className={`text-[13px] text-muted transition-colors duration-300 ${textHover}`}
+                  className={`text-[13px] font-medium text-muted transition-colors duration-300 ${textHover}`}
                 >
                   {job.company}
                 </p>
               </div>
               <p
-                className={`hidden shrink-0 text-[13px] text-muted transition-colors duration-300 sm:block ${textHover}`}
+                className={`hidden shrink-0 text-[13px] font-medium text-muted transition-colors duration-300 sm:block ${textHover}`}
               >
                 {job.dates}
               </p>

@@ -1,5 +1,42 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
+import { motion } from "motion/react";
 import { Button, Reveal } from "./ui";
+
+const ease = [0.22, 1, 0.36, 1] as const;
+const maskRest = "circle(0% at right top)";
+const maskHover = "circle(150% at right top)";
+
+function ProfileSwap() {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <motion.div
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      className="relative aspect-square w-full cursor-pointer overflow-hidden rounded-[28px]"
+    >
+      <img
+        src="/Gabriele%20Consolo.webp"
+        alt="Gabriele Consolo"
+        className="size-full object-cover"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0"
+        style={{
+          clipPath: hovered ? maskHover : maskRest,
+          transition: `clip-path 0.65s cubic-bezier(${ease.join(",")})`,
+        }}
+      >
+        <img
+          src="/logo%20hover.webp"
+          alt=""
+          className="size-full object-cover"
+        />
+      </div>
+    </motion.div>
+  );
+}
 
 export function Hero({ children }: { children?: ReactNode }) {
   return (
@@ -9,16 +46,12 @@ export function Hero({ children }: { children?: ReactNode }) {
     >
       <Reveal className="md:sticky md:top-8">
         <div className="max-w-[280px]">
-          <img
-            src="/Gabriele%20Consolo.webp"
-            alt="Gabriele Consolo"
-            className="aspect-square w-full rounded-[28px] object-cover"
-          />
+          <ProfileSwap />
           <h1 className="mt-6 font-serif text-[40px] leading-[1.05] tracking-[-0.02em] text-ink">
             I'm Gabriele Consolo
           </h1>
-          <p className="mt-3 text-[15px] leading-relaxed text-muted">
-            Digital Product Designer based in Tegal, Indonesia.
+          <p className="mt-3 text-[15px] font-medium leading-relaxed text-muted">
+            Digital Product Designer and Art Director based in Italy.
           </p>
         </div>
       </Reveal>

@@ -113,6 +113,16 @@ export const works = [
     blurb: "Website, brand system, and marketing assets for the studio.",
     tint: "#f3efe8",
     image: "/works/Webble.webp",
+    photos: [
+      { src: "/works/Webble/1 largo.webp", wide: true },
+      { src: "/works/Webble/2 quadrato.webp", wide: false },
+      { src: "/works/Webble/3 quadrato.webp", wide: false },
+      { src: "/works/Webble/4 largo.webp", wide: true },
+      { src: "/works/Webble/5 largo.webp", wide: true },
+      { src: "/works/Webble/6 quadrato.webp", wide: false },
+      { src: "/works/Webble/7 quadrato.webp", wide: false },
+      { src: "/works/Webble/8 largo.webp", wide: true },
+    ],
   },
   {
     slug: "holdup-agency",
@@ -121,6 +131,15 @@ export const works = [
     blurb: "Art direction and web design for the agency presence.",
     tint: "#f7e8e2",
     image: "/works/Holdup.webp",
+    photos: [
+      { src: "/works/Holdup/1 larga.webp", wide: true },
+      { src: "/works/Holdup/2 formato 5 6.webp", wide: false },
+      { src: "/works/Holdup/3 formato 5 6.webp", wide: false },
+      { src: "/works/Holdup/4 showreel.mp4", wide: true },
+      { src: "/works/Holdup/5 formato 5 6.webp", wide: false },
+      { src: "/works/Holdup/6 formato 5 6.webp", wide: false },
+      { src: "/works/Holdup/7 larga.webp", wide: true },
+    ],
   },
   {
     slug: "mbp-productions",
@@ -129,6 +148,13 @@ export const works = [
     blurb: "Visual direction and website for a production studio.",
     tint: "#eceff3",
     image: "/works/Mbp.webp",
+    photos: [
+      { src: "/works/mbp productions/1 largo.webp", wide: true },
+      { src: "/works/mbp productions/2 quadrato.webp", wide: false },
+      { src: "/works/mbp productions/3 quadrato.webp", wide: false },
+      { src: "/works/mbp productions/4 largo.webp", wide: true },
+      { src: "/works/mbp productions/5 largo.webp", wide: true },
+    ],
   },
   {
     slug: "legacy-of-game",
@@ -137,6 +163,15 @@ export const works = [
     blurb: "Creative lead and project management across product and brand.",
     tint: "#f3efe8",
     image: "/works/Legacy of game.webp",
+    photos: [
+      { src: "/works/Legacy of game/1 larga.webp", wide: true },
+      { src: "/works/Legacy of game/2 quadrata.webp", wide: false },
+      { src: "/works/Legacy of game/3 quadrata.webp", wide: false },
+      { src: "/works/Legacy of game/4 larga.webp", wide: true },
+      { src: "/works/Legacy of game/5 quadrata.webp", wide: false },
+      { src: "/works/Legacy of game/6 quadrata.webp", wide: false },
+      { src: "/works/Legacy of game/7 larga.webp", wide: true },
+    ],
   },
   {
     slug: "mavimatt",
@@ -153,6 +188,17 @@ export const works = [
     blurb: "App design and branding for a product launch.",
     tint: "#eceff3",
     image: "/works/GustaGo.webp",
+    photos: [
+      { src: "/works/GustaGo/1 larga.webp", wide: true },
+      { src: "/works/GustaGo/2 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/GustaGo/3 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/GustaGo/4 larga.webp", wide: true },
+      { src: "/works/GustaGo/5 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/GustaGo/6 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/GustaGo/7 larga.webp", wide: true },
+      { src: "/works/GustaGo/8 larga.webp", wide: true },
+      { src: "/works/GustaGo/9 larga.webp", wide: true },
+    ],
   },
   {
     slug: "vista360",
@@ -186,6 +232,11 @@ export function getWork(slug: string) {
   return works.find((work) => work.slug === slug);
 }
 
-export function workPhotos(work: Work) {
-  return [work.image];
+export type WorkPhoto = { src: string; wide: boolean; aspect?: "4/5" };
+
+export function workPhotos(work: Work): WorkPhoto[] {
+  if ("photos" in work && work.photos) {
+    return work.photos.map((photo) => ({ ...photo }));
+  }
+  return [{ src: work.image, wide: true }];
 }

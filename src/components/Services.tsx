@@ -36,7 +36,7 @@ export function Services() {
                   <p className="text-[16px] font-semibold tracking-[-0.02em]">
                     {service.title}
                   </p>
-                  <p className="mt-1 max-w-[62ch] text-[14px] leading-relaxed text-muted">
+                  <p className="mt-1 max-w-[62ch] text-[14px] font-medium leading-relaxed text-muted">
                     {service.body}
                   </p>
                 </div>

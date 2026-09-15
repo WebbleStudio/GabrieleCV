@@ -17,13 +17,13 @@ export function Footer() {
           />
           <div>
             <p className="font-serif text-[26px] leading-tight">I'm Gabriele Consolo</p>
-            <p className="mt-1 text-[13px] text-white/55">
-              Digital Product Designer based in Tegal, Indonesia.
+            <p className="mt-1 text-[13px] font-medium text-white/55">
+              Digital Product Designer and Art Director based in Italy.
             </p>
           </div>
         </div>
 
-        <div className="grid flex-1 grid-cols-2 gap-x-8 gap-y-2 text-[14px] md:justify-items-center">
+        <div className="grid flex-1 grid-cols-2 gap-x-8 gap-y-2 text-[14px] font-medium md:justify-items-center">
           <div className="flex flex-col gap-2">
             {left.map((link) => (
               <Link

@@ -1,5 +1,5 @@
-import { motion, type HTMLMotionProps } from "motion/react";
-import type { ReactNode } from "react";
+import { motion } from "motion/react";
+import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -33,8 +33,8 @@ export function SectionHeader({ children }: { children: ReactNode }) {
   );
 }
 
-type ButtonProps = HTMLMotionProps<"a"> & {
-  variant?: "solid" | "outline" | "light";
+type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
+  variant?: "solid" | "outline" | "light" | "accent";
 };
 
 export function Button({
@@ -45,22 +45,21 @@ export function Button({
 }: ButtonProps) {
   const styles = {
     solid:
-      "bg-ink text-white border border-ink hover:bg-[#2a2a2a]",
+      "bg-ink text-white border border-ink hover:bg-accent hover:border-accent",
     outline:
-      "bg-transparent text-ink border border-ink/20 hover:border-ink/50",
+      "bg-transparent text-ink border border-ink/20 hover:bg-ink hover:text-white hover:border-ink",
     light:
-      "bg-white text-ink border border-transparent hover:bg-cream",
+      "bg-white text-ink border border-transparent hover:bg-accent hover:text-white",
+    accent:
+      "bg-transparent text-ink border border-ink/20 hover:bg-accent hover:text-white hover:border-accent",
   }[variant];
 
   return (
-    <motion.a
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.97 }}
-      transition={{ type: "spring", bounce: 0.2, visualDuration: 0.35 }}
-      className={`inline-flex h-11 items-center justify-center rounded-full px-6 text-[14px] font-medium tracking-[-0.01em] ${styles} ${className}`}
+    <a
+      className={`inline-flex h-11 items-center justify-center rounded-full px-6 text-[14px] font-medium tracking-[-0.01em] transition-colors duration-300 ${styles} ${className}`}
       {...props}
     >
       {children}
-    </motion.a>
+    </a>
   );
 }

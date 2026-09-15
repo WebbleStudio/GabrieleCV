@@ -16,7 +16,7 @@ export function Works() {
               <motion.article
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", bounce: 0.12, visualDuration: 0.4 }}
-                className="overflow-hidden rounded-[28px] bg-[#7541ee]/10 p-3 sm:p-4"
+                className="overflow-hidden rounded-[28px] bg-[#7541ee]/10 p-3 will-change-transform sm:p-4"
               >
                 <div className="aspect-video overflow-hidden rounded-[18px] bg-black/5">
                   <img
@@ -32,7 +32,7 @@ export function Works() {
                   <p className="mt-2 text-[14px] font-medium tracking-[-0.01em] text-ink">
                     {work.tags.join("  ·  ")}
                   </p>
-                  <p className="mt-2 max-w-[52ch] text-[14px] font-medium leading-relaxed text-black/60">
+                  <p className="mt-2 max-w-[52ch] text-[14px] font-medium leading-relaxed text-muted">
                     {work.blurb}
                   </p>
                 </div>

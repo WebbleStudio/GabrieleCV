@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { BentoGallery } from "../components/BentoGallery";
 import { Footer } from "../components/Footer";
@@ -30,19 +29,6 @@ function Arrow({ dir }: { dir: "left" | "right" }) {
 export function Project() {
   const { slug } = useParams();
   const work = slug ? getWork(slug) : undefined;
-  const [pinned, setPinned] = useState(true);
-
-  useEffect(() => {
-    const footer = document.querySelector("footer");
-    if (!footer) return;
-
-    const io = new IntersectionObserver(
-      ([entry]) => setPinned(!entry.isIntersecting),
-      { root: null, threshold: 0, rootMargin: "0px 0px -112px 0px" },
-    );
-    io.observe(footer);
-    return () => io.disconnect();
-  }, []);
 
   if (!work) {
     return <Navigate to="/" replace />;
@@ -51,12 +37,6 @@ export function Project() {
   const index = works.findIndex((item) => item.slug === work.slug);
   const next = works[(index + 1) % works.length];
   const prev = works[(index - 1 + works.length) % works.length];
-
-  const navClass =
-    "flex w-full items-center justify-between gap-4 " +
-    (pinned
-      ? "pointer-events-auto fixed inset-x-0 bottom-12 z-30 mx-auto max-w-[1080px] px-6"
-      : "mt-10");
 
   return (
     <div className="min-h-screen bg-cream">
@@ -75,12 +55,10 @@ export function Project() {
           <BentoGallery photos={workPhotos(work)} alt={work.name} />
         </div>
 
-        {pinned ? <div className="mt-10 h-11" aria-hidden /> : null}
-
-        <nav className={navClass}>
+        <nav className="mt-10 flex w-full items-center justify-between gap-4">
           <Link
             to={`/work/${prev.slug}`}
-            className="group inline-flex h-11 items-center gap-3 rounded-full border border-ink/20 bg-cream/80 py-1 pr-5 pl-1.5 text-[14px] font-medium tracking-[-0.01em] text-ink backdrop-blur-md transition-colors duration-300 hover:border-ink hover:bg-ink/80 hover:text-white"
+            className="group inline-flex h-11 items-center gap-3 rounded-full border border-ink/20 bg-cream py-1 pr-5 pl-1.5 text-[14px] font-medium tracking-[-0.01em] text-ink transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-white"
           >
             <span className="grid size-8 place-items-center rounded-full bg-ink/5 transition-colors duration-300 group-hover:bg-white/15">
               <Arrow dir="left" />
@@ -89,7 +67,7 @@ export function Project() {
           </Link>
           <Link
             to={`/work/${next.slug}`}
-            className="group inline-flex h-11 items-center gap-3 rounded-full border border-ink/80 bg-ink/80 py-1 pr-1.5 pl-5 text-[14px] font-medium tracking-[-0.01em] text-white backdrop-blur-md transition-colors duration-300 hover:border-accent/80 hover:bg-accent/80"
+            className="group inline-flex h-11 items-center gap-3 rounded-full border border-ink bg-ink py-1 pr-1.5 pl-5 text-[14px] font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:border-accent hover:bg-accent"
           >
             Next project
             <span className="grid size-8 place-items-center rounded-full bg-white/15">

@@ -180,6 +180,16 @@ export const works = [
     blurb: "Brand identity and visual system.",
     tint: "#f7e8e2",
     image: "/works/Mavimatt.webp",
+    photos: [
+      { src: "/works/Mavimatt/1 larga.webp", wide: true },
+      { src: "/works/Mavimatt/2 quadrata.webp", wide: false },
+      { src: "/works/Mavimatt/3 quadrata.webp", wide: false },
+      { src: "/works/Mavimatt/4 larga.webp", wide: true },
+      { src: "/works/Mavimatt/5 quadrata.webp", wide: false },
+      { src: "/works/Mavimatt/6 quadrata.webp", wide: false },
+      { src: "/works/Mavimatt/7 larga.webp", wide: true },
+      { src: "/works/Mavimatt/8 larga.webp", wide: true },
+    ],
   },
   {
     slug: "gustago",
@@ -207,6 +217,18 @@ export const works = [
     blurb: "Website design from structure to UI.",
     tint: "#f3efe8",
     image: "/works/Vista360.webp",
+    photos: [
+      { src: "/works/vista360/1 larga.webp", wide: true },
+      { src: "/works/vista360/2 quadrata.webp", wide: false },
+      { src: "/works/vista360/3 quadrata.webp", wide: false },
+      { src: "/works/vista360/4 larga.webp", wide: true },
+      { src: "/works/vista360/5 quadrata.webp", wide: false },
+      { src: "/works/vista360/6 quadrata.webp", wide: false },
+      { src: "/works/vista360/7 larga.webp", wide: true },
+      { src: "/works/vista360/8 quadrata.webp", wide: false },
+      { src: "/works/vista360/9 quadrata.webp", wide: false },
+      { src: "/works/vista360/10 larga.webp", wide: true },
+    ],
   },
   {
     slug: "forex-aikido",
@@ -215,6 +237,19 @@ export const works = [
     blurb: "Brand and social media design for the channel.",
     tint: "#f7e8e2",
     image: "/works/Forex Aikido.webp",
+    photos: [
+      { src: "/works/forex aikido/1 larga.webp", wide: true },
+      { src: "/works/forex aikido/2 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/forex aikido/3 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/forex aikido/4 larga.webp", wide: true },
+      { src: "/works/forex aikido/5 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/forex aikido/6 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/forex aikido/7 larga.webp", wide: true },
+      { src: "/works/forex aikido/8 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/forex aikido/9 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/forex aikido/10 larga.webp", wide: true },
+      { src: "/works/forex aikido/11 larga.webp", wide: true },
+    ],
   },
   {
     slug: "the-trader-forge",
@@ -223,6 +258,18 @@ export const works = [
     blurb: "Art direction and social media design for the trading brand.",
     tint: "#eceff3",
     image: "/works/the trader forge.webp",
+    photos: [
+      { src: "/works/The trader forge/1 larga.webp", wide: true },
+      { src: "/works/The trader forge/2 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/The trader forge/3 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/The trader forge/4 larga 3 1.webp", wide: true, aspect: "3/1" },
+      { src: "/works/The trader forge/5 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/The trader forge/6 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/The trader forge/7 larga 3 1.webp", wide: true, aspect: "3/1" },
+      { src: "/works/The trader forge/8 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/The trader forge/9 4 5.webp", wide: false, aspect: "4/5" },
+      { src: "/works/The trader forge/10 larga 3 1.webp", wide: true, aspect: "3/1" },
+    ],
   },
 ] as const;
 
@@ -232,7 +279,7 @@ export function getWork(slug: string) {
   return works.find((work) => work.slug === slug);
 }
 
-export type WorkPhoto = { src: string; wide: boolean; aspect?: "4/5" };
+export type WorkPhoto = { src: string; wide: boolean; aspect?: "4/5" | "3/1" };
 
 export function workPhotos(work: Work): WorkPhoto[] {
   if ("photos" in work && work.photos) {

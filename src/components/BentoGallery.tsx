@@ -13,7 +13,7 @@ export function BentoGallery({
   if (!photos.length) return null;
 
   return (
-    <div className="grid grid-cols-2 gap-3 md:gap-5">
+    <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5">
       {photos.map((photo, i) => (
         <motion.div
           key={`${photo.src}-${i}`}
@@ -22,7 +22,9 @@ export function BentoGallery({
           transition={{ duration: 0.55, delay: 0.08 + i * 0.07, ease }}
           className={`relative overflow-hidden rounded-[22px] bg-black/5 ${
             photo.wide
-              ? "col-span-2 aspect-video"
+              ? photo.aspect === "3/1"
+                ? "col-span-1 aspect-[3/1] md:col-span-2"
+                : "col-span-1 aspect-video md:col-span-2"
               : photo.aspect === "4/5"
                 ? "aspect-[4/5]"
                 : "aspect-[5/5.5]"
